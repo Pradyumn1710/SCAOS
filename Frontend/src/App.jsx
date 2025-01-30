@@ -4,7 +4,7 @@ import Header from './mycomponents/Homepage/Header';
 import Homepage from './Pages/Homepage';
 import Form from './mycomponents/other/Form'; // Adjust path as per your actual structure
 import StampPad from './mycomponents/Admin/Quotation';
-import AdminDashboard from './mycomponents/Admin/Admin';
+import AdminDashboard from './Pages/Admin';
 import GenerateBill from './mycomponents/Admin/generate-bill/GenerateBill';
 
 function App() {
@@ -17,12 +17,10 @@ function App() {
           <Route path="/form" element={<Form />} />
         </Routes>
       </BrowserRouter>
-      {/* <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AdminDashboard />} />
-        <Route path="/generate" element={<GenerateBill />} />
-      </Routes>
-      </BrowserRouter> */}
+      
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/generate" element={<GenerateBill />} />
+  
     </div>
   );
 }
