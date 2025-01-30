@@ -15,11 +15,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/form" element={<Form />} />
-        </Routes>
-      </BrowserRouter>
+        
+      
       
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/generate" element={<GenerateBill />} />
+        </Routes>
+        </BrowserRouter>
   
     </div>
   );
