@@ -31,7 +31,7 @@ export default function HeroHeader() {
           {/* Right Side (Image Background) */}
           <div
             className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center rounded-lg"
-            style={{ backgroundImage: "url('/images/main_bg.png')" }}
+            style={{ backgroundImage: "url('Main/cleaning service-bro.png')" }}
           >
             {/* No need for an <img> tag here, the background image handles it */}
           </div>

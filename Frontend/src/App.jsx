@@ -6,6 +6,7 @@ import Form from './mycomponents/other/Form'; // Adjust path as per your actual 
 import StampPad from './mycomponents/Admin/Quotation';
 import AdminDashboard from './Pages/Admin';
 import GenerateBill from './mycomponents/Admin/generate-bill/GenerateBill';
+import Services from './Pages/Services';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
         
       
       
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/adminpannelabhijeet" element={<AdminDashboard />} />
         <Route path="/admin/generate" element={<GenerateBill />} />
+        <Route path="/services" element={<Services />} />
         </Routes>
         </BrowserRouter>
   

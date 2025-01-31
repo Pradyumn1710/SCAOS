@@ -3,22 +3,22 @@ import { Star } from "lucide-react"
 export default function Review() {
   const reviews = [
     {
-      author: "John D.",
-      text: "Excellent service! My house has never been cleaner. The attention to detail was impressive.",
+      author: "Prashant K.",
+      text: "Excellent service! The attention to detail was impressive. Affordable and reliable.",
       rating: 5,
-      image: "/images/john-d.jpg",
+      image: "/Letters/P.png",
     },
     {
-      author: "Sarah M.",
-      text: "Professional and thorough. Highly recommended! They went above and beyond my expectations.",
-      rating: 5,
-      image: "/images/sarah-m.jpg",
-    },
-    {
-      author: "Mike R.",
-      text: "Great attention to detail. Will use again! The team was punctual and very courteous.",
+      author: "Akshita S.",
+      text: "Professional and thorough. Highly recommended! ",
       rating: 4,
-      image: "/images/mike-r.jpg",
+      image: "/Letters/A.png",
+    },
+    {
+      author: "Tanisha R.",
+      text: "Will use again! The team was punctual and very polite.",
+      rating: 5,
+      image: "/Letters/T.png",
     },
   ]
 
