@@ -1,27 +1,20 @@
 "use client"
 
 import { useState } from "react"
-// import { useToast } from "@/components/ui/use-toast"
+import axios from "axios"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
   Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogTrigger,
-  DialogClose,
   DialogContent,
   DialogHeader,
-  DialogFooter,
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
 
-
 export default function Quote() {
-  // const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -39,14 +32,19 @@ export default function Quote() {
     setFormData({ ...formData, service: value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend
-    // console.log(formData)
-    // Show dialog
-    setIsDialogOpen(true)
-    // Reset form
-    setFormData({ name: "", phone: "", company: "", email: "", service: "" })
+
+    try {
+      const response = await axios.post("http://localhost:5000/send-email", formData)
+      
+      if (response.status === 200) {
+        setIsDialogOpen(true) // Show success dialog
+        setFormData({ name: "", phone: "", company: "", email: "", service: "" }) // Reset form
+      }
+    } catch (error) {
+      console.error("Error sending email:", error)
+    }
   }
 
   return (
@@ -92,12 +90,9 @@ export default function Quote() {
               </form>
             </div>
             <div
-  className="absolute inset-0 md:relative md:w-1/2 bg-no-repeat bg-contain bg-center"
-  style={{
-    backgroundImage: `url("/Main/Contact us-amico.png")`,
-  }}
->
-
+              className="absolute inset-0 md:relative md:w-1/2 bg-no-repeat bg-contain bg-center"
+              style={{ backgroundImage: `url("/Main/Contact us-amico.png")` }}
+            >
               <div className="absolute inset-0 bg-blue-600/10 md:bg-transparent"></div>
             </div>
           </div>
@@ -115,4 +110,3 @@ export default function Quote() {
     </section>
   )
 }
-

@@ -20,6 +20,11 @@ export default function Services() {
       description: "Expert cleaning for specific needs like post-construction or deep cleaning.",
       image: "Main/specialized_cleaning.jpg",
     },
+    {
+      title: "House Keeping",
+      description: "Professional home cleaning services tailored to your needs.",
+      image: "Main/house_keeping.jpg",
+    },
   ];
 
   return (
