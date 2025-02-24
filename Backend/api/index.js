@@ -4,17 +4,25 @@ const app = express();
 
 app.use(express.json()); // Middleware to parse JSON bodies
 
-// Enable CORS
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Change this to your frontend URL for security
-  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") {
-    return res.status(200).end(); // Handle CORS preflight request
-  }
-  next();
-});
+// // Enable CORS
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.setHeader("Access-Control-Allow-Origin", "*"); // Change this to your frontend URL for security
+//   res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   if (req.method === "OPTIONS") {
+//     return res.status(200).end(); // Handle CORS preflight request
+//   }
+//   next();
+// });
+
+const cors = require("cors");
+
+app.use(cors({ 
+  origin: "http://localhost:5173", // Change to your frontend URL when deployed
+  credentials: true 
+}));
+
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 

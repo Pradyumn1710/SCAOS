@@ -36,7 +36,7 @@ export default function Quote() {
     e.preventDefault()
 
     try {
-      const response = await axios.post("https://scaos-964i-git-main-pradyumn1710s-projects.vercel.app/api/index", formData)
+      const response = await axios.post("https://scoasbackend-8ija76jcu-pradyumn1710s-projects.vercel.app/send-mail", formData)
       
       if (response.status === 200) {
         setIsDialogOpen(true) // Show success dialog
