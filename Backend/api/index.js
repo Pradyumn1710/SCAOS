@@ -19,7 +19,7 @@ app.use(express.json()); // Middleware to parse JSON bodies
 const cors = require("cors");
 
 app.use(cors({ 
-  origin: "http://localhost:5173", // Change to your frontend URL when deployed
+    origin:["http://localhost:5173", "https://scaos-git-main-pradyumn1710s-projects.vercel.app/" ,"https://scaos-9sryvm9yb-pradyumn1710s-projects.vercel.app/"], // Change to your frontend URL when deployed
  
 }));
 
