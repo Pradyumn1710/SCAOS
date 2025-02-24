@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import {Link} from "react-router-dom"
-import { ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function Services() {
   const services = [
     {
       title: "Residential Cleaning",
       description: "Professional home cleaning services tailored to your needs.",
-      image: "/Main/people-taking-care-office-cleaning.jpg",
+      image: "/Main/Residential_cleaning.jpg",
     },
     {
       title: "Commercial Cleaning",
       description: "Keep your business spotless with our commercial cleaning solutions.",
-      image: "Main/full-shot-men-cleaning-office.jpg",
+      image: "Main/commercial_cleaning.jpg",
     },
     {
       title: "Specialized Cleaning",
       description: "Expert cleaning for specific needs like post-construction or deep cleaning.",
-      image: "Main/specialized cleaning.jpg",
+      image: "Main/specialized_cleaning.jpg",
     },
-  ]
+  ];
 
   return (
     <section className="my-16 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 max-w-screen-2xl mx-auto">
@@ -38,7 +38,7 @@ export default function Services() {
             <div className="flex flex-col h-full">
               <div className="relative w-full h-96">
                 <img
-                  src={service.image || "/placeholder.svg"}
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
@@ -62,6 +62,5 @@ export default function Services() {
         ))}
       </div>
     </section>
-  )
+  );
 }
-

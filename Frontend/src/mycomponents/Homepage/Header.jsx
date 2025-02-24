@@ -1,11 +1,20 @@
-"use client"
-
-import {Link} from "react-router-dom"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const quoteRef = useRef(null);
+
+  // Function to scroll to the quote section
+  const handleScrollToQuote = (event) => {
+    event.preventDefault();
+    const quoteSection = document.getElementById("quote");
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -31,12 +40,13 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link
-                to="#quote"
+              <a
+                href="#quote"
+                onClick={handleScrollToQuote}
                 className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
               >
                 Get a Quote
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
@@ -75,18 +85,17 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link
+              <a
                 to="#quote"
+                onClick={handleScrollToQuote}
                 className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Get a Quote
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
       )}
     </header>
-  )
+  );
 }
-

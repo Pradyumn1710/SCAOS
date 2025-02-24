@@ -1,10 +1,19 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HeroHeader() {
+  const bgImageSrc = "/Main/cleaning service-bro.png";
+
+  // Function to scroll smoothly to the "quote" section
+  const handleScrollToQuote = (event) => {
+    event.preventDefault();
+    const quoteSection = document.getElementById("quote");
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="1" className="py-12 lg:py-20 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -16,9 +25,12 @@ export default function HeroHeader() {
             </h1>
             <h2 className="text-xl text-gray-600">Professional and Reliable Cleaning Solutions for Every Need</h2>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="w-full sm:w-auto">
-                <Link to="/quote">Get a Quote</Link>
-              </Button>
+              <a href="#quote" onClick={handleScrollToQuote}>
+                <Button size="lg" className="w-full sm:w-auto">
+                  Get a Quote
+                </Button>
+              </a>
+
               <Button size="lg" variant="outline" className="w-full sm:w-auto group">
                 <Link to="/know-more" className="flex items-center">
                   Learn More
@@ -28,15 +40,13 @@ export default function HeroHeader() {
             </div>
           </div>
 
-          {/* Right Side (Image Background) */}
+          {/* Right Side (Background Image) */}
           <div
             className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center rounded-lg"
-            style={{ backgroundImage: "url('Main/cleaning service-bro.png')" }}
-          >
-            {/* No need for an <img> tag here, the background image handles it */}
-          </div>
+            style={{ backgroundImage: `url('${bgImageSrc}')` }}
+          ></div>
         </div>
       </div>
     </section>
-  )
+  );
 }

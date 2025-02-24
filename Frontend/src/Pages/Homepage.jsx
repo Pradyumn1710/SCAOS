@@ -6,13 +6,15 @@ import Review from "@/mycomponents/Homepage/Review"
 import Quote from "@/mycomponents/Homepage/Quote"   
 import Footer from "@/mycomponents/Homepage/Footer" 
 
-export default function Homepage(){
-    return <div>
-        <HeroHeader></HeroHeader>
-        <Services></Services>
-         <Review></Review>
-        <Quote></Quote> 
-        {/* <Partner></Partner> */}
-        <Footer></Footer>
-    </div>
+export default function Homepage({ onImageLoad, onImageCount }) {
+    return (
+        <div>
+            <HeroHeader onImageLoad={onImageLoad} onImageCount={onImageCount} />
+            <Services onImageLoad={onImageLoad} onImageCount={onImageCount} />
+            <Review />
+            <Quote /> 
+            {/* <Partner /> */}
+            <Footer />
+        </div>
+    );
 }
