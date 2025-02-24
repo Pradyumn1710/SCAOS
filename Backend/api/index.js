@@ -1,25 +1,33 @@
-require("dotenv").config();
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
+// Enable CORS
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Change this to your frontend URL for security
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end(); // Handle CORS preflight request
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, message: "Method Not Allowed" });
   }
 
   const { name, email, message } = req.body;
 
-  // Nodemailer Transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Your email
-      pass: process.env.EMAIL_PASS, // Your app password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.RECEIVER_EMAIL, // The recipient email
+    to: process.env.RECEIVER_EMAIL,
     subject: "New Form Submission",
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
