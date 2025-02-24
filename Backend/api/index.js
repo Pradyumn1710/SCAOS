@@ -20,7 +20,7 @@ const cors = require("cors");
 
 app.use(cors({ 
   origin: "http://localhost:5173", // Change to your frontend URL when deployed
-  credentials: true 
+ 
 }));
 
 
