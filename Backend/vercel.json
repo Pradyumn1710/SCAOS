@@ -1,15 +1,1 @@
-{
-    "version": 2,
-    "builds": [
-        {
-            "src": "backend/api/send-mail/index.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "backend/api/send-mail/index.js"
-        }
-    ]
-}
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
